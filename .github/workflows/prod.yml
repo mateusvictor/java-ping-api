@@ -31,3 +31,13 @@ jobs:
 
       - name: Push Docker Image
         run: docker push mateusvictorss/java-ping-api
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from Docker Hub
+        run: docker pull mateusvictorss/java-ping-api:latest
+
+      - name: Run Docker Container
+        run: docker run -d -p 80:8080 --name java-ping-api mateusvictorss/java-ping-api
