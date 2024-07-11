@@ -13,10 +13,13 @@
 
 # -------------
 
+# FROM eclipse-temurin:21-jdk-alpine
 FROM openjdk:21
 
 ARG JAR_FILE=./build/libs/ping-api-0.0.1.jar
-COPY . /app
+
+#COPY . /app
+
 COPY ${JAR_FILE} ping-api.jar
 
 EXPOSE 8080
