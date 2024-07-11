@@ -39,5 +39,8 @@ jobs:
       - name: Pull image from Docker Hub
         run: sudo docker pull mateusvictorss/java-ping-api:latest
 
+      - name: Remove Docker Container
+        run: sudo docker rm -f java-ping-api
+
       - name: Run Docker Container
         run: sudo docker run -d -p 80:8080 --name java-ping-api mateusvictorss/java-ping-api
